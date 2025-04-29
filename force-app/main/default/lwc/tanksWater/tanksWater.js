@@ -1,6 +1,7 @@
 import { LightningElement, track } from 'lwc';
 import papaparse from '@salesforce/resourceUrl/papaparse';
 import { loadScript } from 'lightning/platformResourceLoader';
+import createTanks from '@salesforce/apex/uploadtanks.createTanks';
 
 
 export default class CargarDeTanques extends LightningElement {
@@ -46,7 +47,7 @@ export default class CargarDeTanques extends LightningElement {
         return this.csvData && this.csvData.length > 0;
     }
     handleConfirm() {
-       cargarTanques({ tanks: this.csvData })
+       createTanks({ tanks: this.csvData })
            .then(() => {
                console.log('Tanques creados exitosamente');
                this.csvData = [];

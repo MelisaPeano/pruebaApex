@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Tanques Cargados" icon-name="utility:container">
+        <div class="slds-p-around_medium">
+            <lightning-button label="Actualizar" onclick={handleRefresh}></lightning-button>
+            <lightning-datatable
+                key-field="Id"
+                data={tanks}
+                columns={columns}
+                hide-checkbox-column="true">
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>
